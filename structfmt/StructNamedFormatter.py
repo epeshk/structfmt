@@ -54,7 +54,7 @@ class StructNamedFormatter:
         Sets network byte order
         :rtype: StructNamedFormatter
         """
-        self.__formatter.native_endian()
+        self.__formatter.network_endian()
         return self
 
     def skip_bytes(self, count=1):
