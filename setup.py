@@ -10,6 +10,6 @@ setup(
   author_email='1197228@gmail.com',
   url='https://github.com/epeshk/structfmt',
   download_url='https://github.com/epeshk/structfmt/tarball/0.0.1',
-  keywords=['struct', 'binary', 'format', 'string', 'serialization'],
+  keywords=['struct', 'binary', 'bytes', 'format', 'string', 'serialization'],
   classifiers=[],
 )
