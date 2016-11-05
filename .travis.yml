@@ -9,6 +9,6 @@ python:
   - "nightly" # currently points to 3.7-dev
   - "pypy3"
 # command to run tests
-install: "pip install pytest"
+install: "pip install -r requirements.txt"
 
 script: pytest ./structfmt_unittests/structfmt_tests.py
