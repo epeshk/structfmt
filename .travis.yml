@@ -11,4 +11,4 @@ python:
 # command to run tests
 install: "pip install pytest"
 
-script: make test
+script: python -m unittest ./structfmt_unittests/structfmt_tests.py

@@ -1,4 +1,4 @@
-import structfmt
+from structfmt import structfmt
 import unittest
 
 
@@ -113,6 +113,29 @@ class StructNamedFormatTests(unittest.TestCase):
         unpacked = s.unpack(packed)
         self.assertEqual(0x1234, unpacked.int1)
         self.assertEqual(0x4321, unpacked.int2)
+
+    def test_unpack_from(self):
+        s = (structfmt.struct_named_format("name")
+             .little_endian()
+             .int32("int1")
+             .int32("int2", mapper=lambda x: x + 1)
+             ).build_formatted_struct()
+
+        packed = b'\x01\x34\x12\x00\x00\x21\x43\x00\x00\x02\x02\x04\x05\x06'
+
+        unpacked = s.unpack_from(packed, 1)
+        self.assertEqual(0x1234, unpacked.int1)
+        self.assertEqual(0x4321 + 1, unpacked.int2)
+
+    def test_size(self):
+        s = (structfmt.struct_named_format("name")
+             .little_endian()
+             .int32("int1")
+             .int32("int2")
+             .int16("int3")
+             ).build_formatted_struct()
+
+        self.assertEqual(10, s.size)
 
     def test_mapper(self):
         s = (structfmt.struct_named_format("name")
