@@ -53,6 +53,9 @@ Behaviour similar to struct.Struct
    pack(self, *items):
    pack_into(self, buffer, offset, *items):
    unpack(self, buffer):
+   unpack_from(self, buffer, offset=0):
+   iter_unpack(self, buffer):
+   size
 ```
 
 #### Examples:
